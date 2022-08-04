@@ -207,14 +207,12 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               buttonTitle: 'CALCULATE',
               onTapp: () {
-                Future.delayed(Duration.zero, () async {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Resultas(),
-                    ),
-                  );
-                });
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Resultas(),
+                  ),
+                );
               },
             ),
           ],
