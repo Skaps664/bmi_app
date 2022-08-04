@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:bmi_app/constants.dart';
 import 'package:bmi_app/reusable_card.dart';
+import 'package:bmi_app/bottom_button.dart';
+import 'package:bmi_app/calculator_brain.dart';
 
 class Resultas extends StatelessWidget {
-  const Resultas({Key key}) : super(key: key);
+  Resultas(
+      {@required this.interpretation,
+      @required this.bmiResult,
+      @required this.resultText});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -29,22 +38,28 @@ class Resultas extends StatelessWidget {
                 cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
-                        'Normal',
+                        resultText,
                         style: kResultTextStyle,
                       ),
                       Text(
-                        '18.3',
+                        bmiResult,
                         style: kBMITextStyle,
                       ),
                       Text(
-                        'Your BMI is quite low, you should eat more',
+                        interpretation,
                         textAlign: TextAlign.center,
                         style: kBodyTextStyle,
                       )
                     ]),
-              ))
+              )),
+          BottomButton(
+            buttonTitle: 'RE-CALCULATE',
+            onTapp: () {
+              Navigator.pop(context);
+            },
+          )
         ],
       ),
     );
