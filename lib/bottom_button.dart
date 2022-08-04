@@ -6,11 +6,10 @@ class BottomButton extends StatelessWidget {
 
   final Function onTapp;
   final String buttonTitle;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTapp(),
+      onTap: onTapp,
       child: Container(
         color: const Color(0XFFEB1555),
         margin: const EdgeInsets.only(top: 10.0),
